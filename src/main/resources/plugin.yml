@@ -1,0 +1,7 @@
+name: Instruments
+version: 1.0
+main: de.clientapi.instruments.Instruments
+commands:
+  instrument:
+    description: Gives the player a specified instrument
+    usage: /instrument <name>
