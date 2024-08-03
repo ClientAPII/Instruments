@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
 
-public class BellGUI extends InstrumentGUI implements Listener {
+public class UkuleleGUI extends InstrumentGUI implements Listener {
     private static final int OCTAVE_SIZE = 12;
     private static final int TOTAL_NOTES = 24; // Two octaves
     private static final float[] PITCHES = {
@@ -29,28 +29,28 @@ public class BellGUI extends InstrumentGUI implements Listener {
     };
 
     private static final Material[] GLASS_PANES = {
-            Material.BLACK_STAINED_GLASS_PANE,  // F#
-            Material.WHITE_STAINED_GLASS_PANE,  // G
-            Material.BLACK_STAINED_GLASS_PANE,  // G#
-            Material.WHITE_STAINED_GLASS_PANE,  // A
-            Material.BLACK_STAINED_GLASS_PANE,  // A#
-            Material.WHITE_STAINED_GLASS_PANE,  // B
-            Material.WHITE_STAINED_GLASS_PANE,  // C
-            Material.BLACK_STAINED_GLASS_PANE,  // C#
-            Material.WHITE_STAINED_GLASS_PANE,  // D
-            Material.BLACK_STAINED_GLASS_PANE,  // D#
-            Material.WHITE_STAINED_GLASS_PANE,  // E
-            Material.WHITE_STAINED_GLASS_PANE   // F
+            Material.ORANGE_STAINED_GLASS_PANE,  // F#
+            Material.YELLOW_STAINED_GLASS_PANE,  // G
+            Material.ORANGE_STAINED_GLASS_PANE,  // G#
+            Material.YELLOW_STAINED_GLASS_PANE,  // A
+            Material.ORANGE_STAINED_GLASS_PANE,  // A#
+            Material.YELLOW_STAINED_GLASS_PANE,  // B
+            Material.YELLOW_STAINED_GLASS_PANE,  // C
+            Material.ORANGE_STAINED_GLASS_PANE,  // C#
+            Material.YELLOW_STAINED_GLASS_PANE,  // D
+            Material.ORANGE_STAINED_GLASS_PANE,  // D#
+            Material.YELLOW_STAINED_GLASS_PANE,  // E
+            Material.YELLOW_STAINED_GLASS_PANE   // F
     };
 
     private static final Material[] GLASS_BLOCKS = Arrays.copyOf(GLASS_PANES, GLASS_PANES.length);
 
     static {
-        Arrays.fill(SOUNDS, Sound.BLOCK_NOTE_BLOCK_BELL);
+        Arrays.fill(SOUNDS, Sound.BLOCK_NOTE_BLOCK_GUITAR);
     }
 
-    public BellGUI(JavaPlugin plugin) {
-        super(plugin, ChatColor.GOLD + "Bell", SOUNDS);
+    public UkuleleGUI(JavaPlugin plugin) {
+        super(plugin, ChatColor.YELLOW + "Ukulele", SOUNDS);
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
@@ -63,7 +63,7 @@ public class BellGUI extends InstrumentGUI implements Listener {
             note = new ItemStack(mat);
             ItemMeta meta = note.getItemMeta();
             if (meta != null) {
-                meta.setDisplayName(ChatColor.GOLD + NOTE_NAMES[i]);
+                meta.setDisplayName(ChatColor.YELLOW + NOTE_NAMES[i]);
                 note.setItemMeta(meta);
             }
             gui.setItem(i, note);
@@ -83,7 +83,7 @@ public class BellGUI extends InstrumentGUI implements Listener {
                 int slot = event.getRawSlot();
                 if ((Arrays.asList(GLASS_PANES).contains(type) || Arrays.asList(GLASS_BLOCKS).contains(type)) && slot >= 0 && slot < TOTAL_NOTES) {
                     float pitch = PITCHES[slot];
-                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1.0f, pitch);
+                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_GUITAR, 1.0f, pitch);
                 }
             }
         }

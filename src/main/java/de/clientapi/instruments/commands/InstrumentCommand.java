@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class InstrumentCommand implements CommandExecutor, TabCompleter {
     private final JavaPlugin plugin;
-    private static final String[] INSTRUMENTS = {"banjo", "bell", "flute", "frenchhorn", "ukulele"};
+    private static final String[] INSTRUMENTS = {"banjo", "bell", "flute", "didgeridoo", "ukulele"};
 
     public InstrumentCommand(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -62,8 +62,8 @@ public class InstrumentCommand implements CommandExecutor, TabCompleter {
             case "flute":
                 displayName = ChatColor.GOLD + "Flute";
                 break;
-            case "frenchhorn":
-                displayName = ChatColor.GOLD + "French Horn";
+            case "didgeridoo":
+                displayName = ChatColor.GOLD + "Didgeridoo";
                 break;
             case "ukulele":
                 displayName = ChatColor.GOLD + "Ukulele";

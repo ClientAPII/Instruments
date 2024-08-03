@@ -1,7 +1,6 @@
 package de.clientapi.instruments.listeners;
 
-import de.clientapi.instruments.inventories.BanjoGUI;
-import de.clientapi.instruments.inventories.BellGUI;
+import de.clientapi.instruments.inventories.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -37,7 +36,13 @@ public class InstrumentListener implements Listener {
                     case "bell":
                         new BellGUI(plugin).open(player);
                         break;
-                    // Add cases for other instruments like flute, frenchhorn, ukulele
+                    case "flute":
+                        new FluteGUI(plugin).open(player);
+                    case "didgeridoo":
+                        new DidgeridooGUI(plugin).open(player);
+                    case "ukulele":
+                        new UkuleleGUI(plugin).open(player);
+                        break;
                     default:
                         break;
                 }
