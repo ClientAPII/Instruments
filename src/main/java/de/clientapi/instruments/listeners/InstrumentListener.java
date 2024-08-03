@@ -38,8 +38,10 @@ public class InstrumentListener implements Listener {
                         break;
                     case "flute":
                         new FluteGUI(plugin).open(player);
+                        break;
                     case "didgeridoo":
                         new DidgeridooGUI(plugin).open(player);
+                        break;
                     case "ukulele":
                         new UkuleleGUI(plugin).open(player);
                         break;
